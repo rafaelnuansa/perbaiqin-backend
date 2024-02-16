@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Technician;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class TechnicianController extends Controller
@@ -51,7 +52,7 @@ class TechnicianController extends Controller
             'email' => $request->email,
             'email_verified_at' => $request->email_verified_at,
             'phone' => $request->phone,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'image' => $image->hashName(),
         ]);
 
@@ -84,6 +85,8 @@ class TechnicianController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:technicians,email,' . $slug . ',slug',
+            'password' => 'nullable|min:6', // tambahkan validasi untuk password
+            'email_verified_at' => 'nullable|date', // tambahkan validasi untuk email_verified_at
             'phone' => 'nullable|numeric',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -94,16 +97,29 @@ class TechnicianController extends Controller
         $technician->email = $request->email;
         $technician->phone = $request->phone;
 
+        // Cek apakah ada perubahan password
+        if ($request->filled('password')) {
+            $technician->password = Hash::make($request->password);
+        }
+
+        // Cek apakah ada perubahan tanggal verifikasi email
+        if ($request->filled('email_verified_at')) {
+            $technician->email_verified_at = now(); // Atau atur tanggal yang sesuai dengan input pengguna
+        }
+
         if ($request->hasFile('image')) {
             // Delete previous image if exists
             $image = $request->file('image');
             $image->storeAs('public/technicians', $image->hashName());
 
-            //delete old image
-            Storage::delete('public/technicians/' . $technician->image);
-            $technician->image = $image->hashName();
+            // Delete old image
+            if ($technician->image) {
+                Storage::delete('public/technicians/' . $technician->image);
+            }
 
+            $technician->image = $image->hashName();
         }
+
         $technician->save();
 
         return redirect()->route('admin.technicians.index')->with('success', 'Technician updated successfully.');

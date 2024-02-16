@@ -10,12 +10,6 @@
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('themes/assets/images/favicon.ico') }}" />
-    <!-- jsvectormap css -->
-    <link href="{{ asset('themes/assets/libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet"
-        type="text/css" />
-
-    <!--Swiper slider css-->
-    <link href="{{ asset('themes/assets/libs/swiper/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- Layout config Js -->
     <script src="{{ asset('themes/assets/js/layout.js') }}"></script>
@@ -25,8 +19,6 @@
     <link href="{{ asset('themes/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="{{ asset('themes/assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
-    <!-- custom Css-->
-    <link href="{{ asset('themes/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -48,6 +40,7 @@
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
         <i class="ri-arrow-up-line"></i>
     </button>
+
     <div id="preloader">
         <div id="status">
             <div class="spinner-border text-primary avatar-sm" role="status">
@@ -61,7 +54,6 @@
     <script src="{{ asset('themes/assets/libs/node-waves/waves.min.js') }}"></script>
     <script src="{{ asset('themes/assets/libs/feather-icons/feather.min.js') }}"></script>
     <script src="{{ asset('themes/assets/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
-
     <script src="{{ asset('themes/assets/js/app.js') }}"></script>
 
 </body>

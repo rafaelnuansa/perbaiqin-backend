@@ -35,17 +35,25 @@
                     <span data-key="t-pages">Pages</span>
                 </li>
 
+
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarTables">
-                        <i class="fas fa-tachometer-alt"></i>
+                        <i class="mdi mdi-speedometer"></i>
                         <span data-key="t-tables">Dashboard</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="{{ route('admin.specialists.index')}}">
-                        <i class="fas fa-user-md"></i>
+                        <i class="mdi mdi-account-medical"></i>
                         <span data-key="t-tables">Specializations</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('admin.technicians.index')}}">
+                        <i class="mdi mdi-account"></i>
+                        <span data-key="t-tables">Technicians</span>
                     </a>
                 </li>
 

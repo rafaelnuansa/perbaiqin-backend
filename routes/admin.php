@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SpecialistController;
+use App\Http\Controllers\Admin\TechnicianController;
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     // Menampilkan form login
@@ -18,6 +19,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         // Dashboard
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('specialists', SpecialistController::class);
+        Route::resource('technicians', TechnicianController::class);
     });
     // Route lainnya
 });
