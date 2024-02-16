@@ -9,18 +9,29 @@ use Illuminate\Http\Request;
 
 class AskTechnicianController extends Controller
 {
-    public function index()
+
+    public function index(Request $request)
     {
-        // get technician many consultation and random
-        $technicians = Technician::take(8)->get();
+        $searchQuery = $request->input('search');
+
+        $technicians = Technician::query();
+        if ($searchQuery) {
+            $technicians->where('name', 'like', '%' . $searchQuery . '%')
+                       ->orWhereHas('specialists', function ($query) use ($searchQuery) {
+                           $query->where('name', 'like', '%' . $searchQuery . '%');
+                       });
+        }
+
+        $technicians = $technicians->paginate(8);
         $specialists = Specialist::orderBy('name')->take(4)->get();
+
         return view('landing.ask-techinician.index', compact('specialists', 'technicians'));
     }
+
 
     public function show($slug)
     {
         $technician = Technician::where('slug', $slug)->first();
-        // dd($technician);
         return view('landing.ask-techinician.show', compact('technician'));
     }
 }

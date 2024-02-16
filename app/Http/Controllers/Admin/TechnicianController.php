@@ -39,7 +39,7 @@ class TechnicianController extends Controller
             'password' => 'required|min:6', // menambahkan validasi untuk password
             'email_verified_at' => 'nullable|date', // menambahkan validasi untuk email_verified_at
             'phone' => 'nullable|numeric',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
 
