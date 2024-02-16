@@ -17,9 +17,9 @@ class AskTechnicianController extends Controller
         $technicians = Technician::query();
         if ($searchQuery) {
             $technicians->where('name', 'like', '%' . $searchQuery . '%')
-                       ->orWhereHas('specialists', function ($query) use ($searchQuery) {
-                           $query->where('name', 'like', '%' . $searchQuery . '%');
-                       });
+                ->orWhereHas('specialists', function ($query) use ($searchQuery) {
+                    $query->where('name', 'like', '%' . $searchQuery . '%');
+                });
         }
 
         $technicians = $technicians->paginate(8);
@@ -31,6 +31,9 @@ class AskTechnicianController extends Controller
 
     public function show($slug)
     {
+        if (!auth()->guard('web')->check()) {
+            return redirect()->route('login')->with('error', 'Please login before ask techcians');
+        }
         $technician = Technician::where('slug', $slug)->first();
         return view('landing.ask-techinician.show', compact('technician'));
     }

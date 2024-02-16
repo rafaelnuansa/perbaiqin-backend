@@ -86,46 +86,46 @@
                             </div>
                         </div>
                     @else
-                            <!-- Team -->
-                            <div class="max-w-[85rem] px-0 py-10 mx-auto">
-                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
-                                    @foreach ($technicians as $technician)
-                                        <div
-                                            class="flex flex-col rounded-xl p-4 md:p-6 bg-white border border-gray-200 dark:bg-slate-900 dark:border-gray-700">
-                                            <div class="flex items-center gap-x-4">
-                                                <img class="rounded-full w-20 h-20"
-                                                    src="{{ asset('storage/technicians/' . $technician->image) }}"
-                                                    alt="{{ $technician->name }}">
-                                                <div class="grow">
-                                                    <h3 class="font-medium text-gray-800 dark:text-gray-200">
-                                                        {{ $technician->name }}
-                                                    </h3>
-                                                    <p class="text-xs text-gray-500">
-                                                        @php
-                                                            $maxSpecialists = 2;
-                                                            $specialistsCount = count($technician->specialists);
-                                                        @endphp
-                                                        @for ($i = 0; $i < min($maxSpecialists, $specialistsCount); $i++)
-                                                            {{ $technician->specialists[$i]->name }}
-                                                            @if ($i < min($maxSpecialists, $specialistsCount) - 1)
-                                                                ,
-                                                            @endif
-                                                        @endfor
-                                                        @if ($specialistsCount > $maxSpecialists)
-                                                            + more
+                        <!-- Team -->
+                        <div class="max-w-[85rem] px-0 py-10 mx-auto">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+                                @foreach ($technicians as $technician)
+                                    <div
+                                        class="flex flex-col rounded-xl p-4 md:p-6 bg-white border border-gray-200 dark:bg-slate-900 dark:border-gray-700">
+                                        <div class="flex items-center gap-x-4">
+                                            <img class="rounded-full w-20 h-20"
+                                                src="{{ asset('storage/technicians/' . $technician->image) }}"
+                                                alt="{{ $technician->name }}">
+                                            <div class="grow">
+                                                <h3 class="font-medium text-gray-800 dark:text-gray-200">
+                                                    {{ $technician->name }}
+                                                </h3>
+                                                <p class="text-xs text-gray-500">
+                                                    @php
+                                                        $maxSpecialists = 2;
+                                                        $specialistsCount = count($technician->specialists);
+                                                    @endphp
+                                                    @for ($i = 0; $i < min($maxSpecialists, $specialistsCount); $i++)
+                                                        {{ $technician->specialists[$i]->name }}
+                                                        @if ($i < min($maxSpecialists, $specialistsCount) - 1)
+                                                            ,
                                                         @endif
-                                                    </p>
-                                                    <a class="inline-flex mt-2 justify-center items-center py-2 px-4 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                                        href="{{ route('landing.ask-technician.show', $technician->slug) }}">
-                                                        Chat
-                                                    </a>
-                                                </div>
+                                                    @endfor
+                                                    @if ($specialistsCount > $maxSpecialists)
+                                                        + more
+                                                    @endif
+                                                </p>
+                                                <a class="inline-flex mt-2 justify-center items-center py-2 px-4 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                                    href="{{ route('landing.ask-technician.show', $technician->slug) }}">
+                                                    Chat
+                                                </a>
                                             </div>
                                         </div>
-                                    @endforeach
-                                </div>
+                                    </div>
+                                @endforeach
                             </div>
-                            <!-- End Team -->
+                        </div>
+                        <!-- End Team -->
 
                     @endif
 
