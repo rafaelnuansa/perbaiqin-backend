@@ -2,18 +2,18 @@
     <!-- LOGO -->
     <div class="navbar-brand-box">
         <!-- Dark Logo-->
-        <a href="index.html" class="logo logo-dark">
+        <a href="{{ route('admin.dashboard')}}" class="logo logo-dark">
             <span class="logo-sm">
-           PerbaiQin
+                PerbaiQin
             </span>
             <span class="logo-lg">
                 PerbaiQin
             </span>
         </a>
         <!-- Light Logo-->
-        <a href="index.html" class="logo logo-light">
+        <a href="{{ route('admin.dashboard')}}" class="logo logo-light">
             <span class="logo-sm">
-           PerbaiQin
+                PerbaiQin
             </span>
             <span class="logo-lg">
                 PerbaiQin
@@ -44,20 +44,34 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{ route('admin.specialists.index')}}">
-                        <i class="mdi mdi-account-medical"></i>
+                    <a class="nav-link menu-link" href="{{ route('admin.specialists.index') }}">
+                        <i class="mdi mdi-folder"></i>
                         <span data-key="t-tables">Specializations</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{ route('admin.technicians.index')}}">
+                    <a class="nav-link menu-link" href="{{ route('admin.technicians.index') }}">
                         <i class="mdi mdi-account"></i>
                         <span data-key="t-tables">Technicians</span>
                     </a>
                 </li>
 
 
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('admin.users.index') }}">
+                        <i class="mdi mdi-account"></i>
+                        <span data-key="t-tables">Users</span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('admin.admins.index') }}">
+                        <i class="mdi mdi-account"></i>
+                        <span data-key="t-tables">Administrators</span>
+                    </a>
+                </li>
 
             </ul>
         </div>

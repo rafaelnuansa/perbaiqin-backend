@@ -14,7 +14,7 @@
                 </div>
                 @if ($technician->email_verified_at)
                     <div class="mb-3">
-                        <strong>Email Verified At:</strong> {{ $technician->email_verified_at->format('Y-m-d H:i:s') }}
+                        <strong>Email Verified At:</strong> {{ $technician->email_verified_at }}
                     </div>
                 @else
                     <div class="mb-3">

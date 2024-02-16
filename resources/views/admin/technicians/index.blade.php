@@ -4,10 +4,10 @@
         <div class="mb-3">
             <a href="{{ route('admin.technicians.create') }}" class="btn btn-primary">Add Technician</a>
         </div>
-        <div class="card">
+        <div class="card card-animate">
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
+                <div class="table-responsive table-card">
+                    <table class="table table-striped ">
                         <thead>
                             <tr>
                                 <th>#</th>

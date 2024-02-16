@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SpecialistController;
 use App\Http\Controllers\Admin\TechnicianController;
+use App\Http\Controllers\Admin\UserController;
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     // Menampilkan form login
@@ -20,6 +22,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('specialists', SpecialistController::class);
         Route::resource('technicians', TechnicianController::class);
+
+        Route::resource('users', UserController::class);
+        Route::resource('admins', AdminController::class);
     });
     // Route lainnya
 });

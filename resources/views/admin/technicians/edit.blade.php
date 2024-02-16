@@ -24,7 +24,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="email_verified_at" class="form-label">Email Verified At</label>
-                        <input type="datetime-local" class="form-control" id="email_verified_at" name="email_verified_at" value="{{ $technician->email_verified_at ? $technician->email_verified_at->format('Y-m-d\TH:i') : '' }}">
+                        <input type="datetime-local" class="form-control" id="email_verified_at" name="email_verified_at" value="{{ $technician->email_verified_at ?? '' }}">
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Image</label>
