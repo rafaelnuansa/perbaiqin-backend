@@ -17,7 +17,6 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
-        "@material-tailwind/html": "^2.2.2",
         "preline": "^2.0.3"
     }
 }

@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\SpecialistController;
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     // Menampilkan form login
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
     // Proses otentikasi login
@@ -12,14 +13,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
     // Proses logout
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-    // Tambahkan rute lainnya untuk admin di sini...
-
     // with middleware auth:admin
     Route::middleware('admin')->group(function () {
         // Dashboard
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-        // Tambahkan rute lainnya yang memerlukan otentikasi admin di sini...
+        Route::resource('specialists', SpecialistController::class);
     });
     // Route lainnya
 });

@@ -23,7 +23,8 @@
         {{ $slot }}
     </main>
 
+
     <x-landing.footer />
-</body>
+    </body>
 
 </html>

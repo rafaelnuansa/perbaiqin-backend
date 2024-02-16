@@ -1,106 +1,100 @@
-<header class="bg-white border-b border-gray-100">
-    <div class="flex items-center justify-between px-4 py-4 sm:px-6">
-        <div class="flex items-center">
-            <button x-on:click="sidebarOpen = !sidebarOpen"
-                x-bind:class="{ 'text-gray-500': sidebarOpen, 'text-gray-700': !sidebarOpen }"
-                class="focus:outline-none">
-                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path x-show="sidebarOpen" d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path x-show="!sidebarOpen" d="M4 6H20M4 12H20M4 18H11" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-            </button>
+<header id="page-topbar">
+    <div class="layout-width">
+        <div class="navbar-header">
+            <div class="d-flex">
+                <!-- LOGO -->
+                <div class="navbar-brand-box horizontal-logo">
+                    <a href="index.html" class="logo logo-dark">
+                        <span class="logo-sm">
+                            <img src="{{ asset('themes/assets/images/logo-sm.png')}}" alt="" height="22" />
+                        </span>
+                        <span class="logo-lg">
+                            <img src="{{ asset('themes/assets/images/logo-dark.png')}}" alt="" height="17" />
+                        </span>
+                    </a>
 
-        </div>
+                    <a href="index.html" class="logo logo-light">
+                        <span class="logo-sm">
+                            <img src="{{ asset('themes/assets/images/logo-sm.png')}}" alt="" height="22" />
+                        </span>
+                        <span class="logo-lg">
+                            <img src="{{ asset('themes/assets/images/logo-light.png')}}" alt="" height="17" />
+                        </span>
+                    </a>
+                </div>
 
-        <div class="flex items-center">
-            <div x-data="{ dropdownOpen: false }" class="relative inline-block">
-                <button @click="dropdownOpen = ! dropdownOpen"
-                    class="relative z-10 block mx-2 text-gray-700 sm:mx-4 focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
-                        </path>
-                    </svg>
+                <button type="button"
+                    class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger shadow-none"
+                    id="topnav-hamburger-icon">
+                    <span class="hamburger-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
                 </button>
 
-                <div class="absolute right-0 z-20 w-64 mt-2 overflow-hidden bg-white rounded-md shadow-lg rtl:right-auto rtl:left-0 sm:w-80"
-                    x-show="dropdownOpen" x-transition:enter="transition ease-out duration-100 transform"
-                    x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
-                    x-transition:leave="transition ease-in duration-75 transform"
-                    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
-                    @click.away="dropdownOpen = false" style="display: none;">
-                    <div class="flex items-center justify-between px-4 pt-4">
-                        <h4 class="text-lg font-medium text-gray-700 capitalize">notifications</h4>
-                        <button class="text-sm text-indigo-600 hover:underline focus:outline-none">Clear
-                            all</button>
-                    </div>
+                <!-- App Search-->
+                <form class="app-search d-none d-md-block">
 
-                    <div class="py-2 divide-y divide-gray-100">
-                        <a href="#"
-                            class="flex px-4 py-3 -mx-2 transition-colors duration-200 transform hover:bg-gray-50">
-                            <p class="mx-2 text-sm text-gray-600 truncate"><span class="font-bold" href="#">Modern
-                                </span> Project updated . 11m</p>
-                        </a>
-
-                        <a href="#"
-                            class="flex px-4 py-3 -mx-2 transition-colors duration-200 transform hover:bg-gray-50">
-                            <p class="mx-2 text-sm text-gray-600 truncate"><span class="font-bold" href="#">Slick
-                                    Net</span> start following you . 45m</p>
-                        </a>
-
-                        <a href="#"
-                            class="flex px-4 py-3 -mx-2 transition-colors duration-200 transform hover:bg-gray-50">
-                            <p class="mx-2 text-sm text-gray-600 truncate"><span class="font-bold"
-                                    href="#">Abigail Bennett</span> create new project . 3h</p>
-                        </a>
-                    </div>
-                </div>
+                </form>
             </div>
 
-            <div x-data="{ dropdownOpen: false }" class="relative inline-block">
-                <button @click="dropdownOpen = ! dropdownOpen"
-                    class="relative z-10 flex items-center flex-shrink-0 text-sm text-gray-600 focus:outline-none">
-                    <img class="flex-shrink-0 object-cover w-8 h-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=880&amp;q=80"
-                        alt="john avatar">
-                </button>
+            <div class="d-flex align-items-center">
 
-                <div class="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl rtl:right-auto rtl:left-0"
-                    x-show="dropdownOpen" x-transition:enter="transition ease-out duration-100 transform"
-                    x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
-                    x-transition:leave="transition ease-in duration-75 transform"
-                    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
-                    @click.away="dropdownOpen = false" style="display: none;">
-                    <a href="/preview/premium-dashboard/profile"
-                        class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform hover:bg-gray-100">
-                        <img class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9"
-                            src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=880&amp;q=80"
-                            alt="john avatar">
-                        <div class="mx-1">
-                            <h1 class="text-sm font-semibold text-gray-700">John Doe</h1>
-                            <p class="text-sm text-gray-500">johndoe@example.com</p>
-                        </div>
-                    </a>
 
-                    <hr class="border-gray-200 ">
 
-                    <a href="/preview/premium-dashboard/profile"
-                        class="block px-4 py-2 text-sm text-gray-600 capitalize transition-colors duration-200 transform hover:bg-gray-100">
-                        Profile
-                    </a>
+                <div class="ms-1 header-item d-none d-sm-flex">
+                    <button type="button"
+                        class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle shadow-none"
+                        data-toggle="fullscreen">
+                        <i class="bx bx-fullscreen fs-22"></i>
+                    </button>
+                </div>
 
-                    <a href="/preview/premium-dashboard/profile"
-                        class="block px-4 py-2 text-sm text-gray-600 capitalize transition-colors duration-200 transform hover:bg-gray-100">
-                        Settings
-                    </a>
 
-                    <a href="/preview/premium-dashboard/sign-in"
-                        class="block px-4 py-2 text-sm text-gray-600 capitalize transition-colors duration-200 transform hover:bg-gray-100">
-                        Sign Out
-                    </a>
+                <div class="dropdown ms-sm-3 header-item topbar-user">
+                    <button type="button" class="btn shadow-none" id="page-header-user-dropdown"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="d-flex align-items-center">
+                            <img class="rounded-circle header-profile-user"
+                                src="assets/images/users/avatar-1.jpg" alt="Header Avatar" />
+                            <span class="text-start ms-xl-2">
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Anna
+                                    Adame</span>
+                                <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Founder</span>
+                            </span>
+                        </span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <!-- item-->
+                        <h6 class="dropdown-header">Welcome Anna!</h6>
+                        <a class="dropdown-item" href="pages-profile.html"><i
+                                class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>
+                            <span class="align-middle">Profile</span></a>
+                        <a class="dropdown-item" href="apps-chat.html"><i
+                                class="mdi mdi-message-text-outline text-muted fs-16 align-middle me-1"></i>
+                            <span class="align-middle">Messages</span></a>
+                        <a class="dropdown-item" href="apps-tasks-kanban.html"><i
+                                class="mdi mdi-calendar-check-outline text-muted fs-16 align-middle me-1"></i>
+                            <span class="align-middle">Taskboard</span></a>
+                        <a class="dropdown-item" href="pages-faqs.html"><i
+                                class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i>
+                            <span class="align-middle">Help</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="pages-profile.html"><i
+                                class="mdi mdi-wallet text-muted fs-16 align-middle me-1"></i>
+                            <span class="align-middle">Balance : <b>$5971.67</b></span></a>
+                        <a class="dropdown-item" href="pages-profile-settings.html"><span
+                                class="badge bg-success-subtle text-success mt-1 float-end">New</span><i
+                                class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                            <span class="align-middle">Settings</span></a>
+                        <a class="dropdown-item" href="auth-lockscreen-basic.html"><i
+                                class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i>
+                            <span class="align-middle">Lock screen</span></a>
+                        <a class="dropdown-item" href="auth-logout-basic.html"><i
+                                class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>
+                            <span class="align-middle" data-key="t-logout">Logout</span></a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('consultation_id')->references('id')->on('consultations')->cascadeOnDelete();
             $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
-            $table->foreignId('technician_id')->references('id')->on('technician')->cascadeOnDelete();
+            $table->foreignId('technician_id')->references('id')->on('technicians')->cascadeOnDelete();
             $table->text('message');
             $table->enum('sender', ['user', 'technician']);
             $table->unsignedBigInteger('recommend_product_id')->nullable();
